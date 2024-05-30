@@ -1,11 +1,16 @@
 import React from "react";
 import classes from "./Modal.module.css";
 
-const Modal: React.FC<{children?:React.ReactNode}> = (props) => {
+interface ModalComponent{
+    onClose: () => void;
+    children?:React.ReactNode
+}
+
+const Modal: React.FC<ModalComponent> = (props) => {
   return (
     <>
-      <div className={classes.backdrop} />
-      <dialog open    className={classes.modal}>
+      <div className={classes.backdrop}   onClick={props.onClose}      />
+      <dialog   open  className={classes.modal}>
         {props.children}
       </dialog>
     </>
