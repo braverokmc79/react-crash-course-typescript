@@ -8,6 +8,8 @@ interface PostListProps{
   isPosting:boolean;
   onStopPosting:()=>void;
 }
+
+
 const PostsList: React.FC<PostListProps>= (props) => {
 
   const [enteredBody, setEnteredBody] = useState<string>("");
@@ -33,6 +35,7 @@ const PostsList: React.FC<PostListProps>= (props) => {
     <NewPost
       onBodyChange={bodyChangeHandler}
       onAuthorChange={authorChangeHandler}
+      onCancle={props.onStopPosting}
     />
   </Modal>
   }

@@ -3,6 +3,7 @@ import classes from './NewPost.module.css';
 interface NewPostProps{
   onBodyChange: React.ChangeEventHandler<HTMLTextAreaElement>;
   onAuthorChange: React.ChangeEventHandler<HTMLInputElement>;
+  onCancle:()=>void;
 }
 
 const NewPost: React.FC<NewPostProps> = (prpos) => {
@@ -18,6 +19,10 @@ const NewPost: React.FC<NewPostProps> = (prpos) => {
       <p>
         <label htmlFor="name">작성자</label>
         <input type="text" id="name" required onChange={prpos.onAuthorChange}/>
+      </p>
+      <p className={classes.actions}>
+        <button type='button' onClick={prpos.onCancle} >취소</button>
+        <button type="submit">전송</button>
       </p>
     </form>
   );
