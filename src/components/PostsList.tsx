@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Post from "./Post";
 import classes from "./PostsList.module.css";
 import NewPost from "./NewPost";
 import Modal from "./Modal";
+import { API_BASE_URL } from './../api-config';
 
 interface PostListProps {
   isPosting: boolean;
@@ -16,9 +17,35 @@ export interface PostData {
 
 
 const PostsList: React.FC<PostListProps> = (props) => {
+ 
   const [posts, setPosts] = useState<PostData[]>([]);
 
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch(API_BASE_URL + "/posts");
+        if (!response.ok) throw new Error("Failed to fetch posts.");}
+        const data = await response.json();
+        setPosts(data.posts);
+      } catch (error) {
+        console.error("게시글을 가져오지 못했습니다. ",error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+
   const addPostHandler = (postData: PostData) => {
+    fetch(API_BASE_URL+'/posts',{
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers:{
+          'Content-Type':'application/json; charset=utf-8'
+        }
+    });
+
     setPosts((existingPosts)=>[postData, ...existingPosts]);
   };
 
