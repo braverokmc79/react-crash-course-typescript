@@ -21,7 +21,7 @@ const App: React.FC = () => {
     <>
     <MainHeader  onCreatePost={showModalHandler} />
 
-     <HeadLog />
+     {/* <HeadLog /> */}
       <main>
         <PostsList  
           isPosting={modalIsVisible}

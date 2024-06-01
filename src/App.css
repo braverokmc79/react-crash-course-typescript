@@ -44,4 +44,6 @@
 
 main{
   width: 1280px;
+  position: relative;
+  top: -300px;
 }
