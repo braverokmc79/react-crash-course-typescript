@@ -8,7 +8,7 @@
     align-items: center;
     border-bottom: 2px solid #ece1fa;
     position: relative;
-    top: -300px;
+    /* top: -300px; */
   }
   
   .logo {
@@ -35,4 +35,5 @@
   
   .button:hover {
     background-color: #8c6cf7;
+    color: #fff;
   }

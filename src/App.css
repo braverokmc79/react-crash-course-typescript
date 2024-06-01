@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  position: relative;
+  height: 100vh;
 }
 
 .logo {
@@ -45,5 +47,5 @@
 main{
   width: 1280px;
   position: relative;
-  top: -300px;
+  /* top: -300px; */
 }
