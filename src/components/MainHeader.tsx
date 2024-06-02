@@ -3,11 +3,7 @@ import classes from './MainHeader.module.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-interface MainHeaderProps{
-    onCreatePost:() => void;
-}
-
-const  MainHeader:React.FC<MainHeaderProps>=({ onCreatePost })=> {
+const  MainHeader:React.FC=()=> {
 
   return (
     <header className={classes.header}>
@@ -16,7 +12,7 @@ const  MainHeader:React.FC<MainHeaderProps>=({ onCreatePost })=> {
         <Link to="/" className='white'>리액트 포스트</Link>
       </h1>
       <p>
-        <Link  to="/create-post" className={classes.button} onClick={onCreatePost}>
+        <Link  to="/create-post" className={classes.button}>
           <MdPostAdd size={18} />
           포스트하기
         </Link>
