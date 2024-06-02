@@ -1,17 +1,16 @@
 import React from "react";
-import classes from './Post.module.css';
+import classes from "./Post.module.css";
 import { Link } from "react-router-dom";
 import { PostData } from "./PostsList";
 
-
-const Post: React.FC<PostData> = ({id, author, body}) => {
+const Post: React.FC<PostData> = ({ id, author, body }) => {
   return (
-    <li className={classes.post}>
-      <Link to={id}>
+    <Link to={id} className={classes.post}>
+      <li>
         <p className={classes.author}>{author}</p>
         <p className={classes.text}>{body}</p>
-      </Link>
-    </li>
+      </li>
+    </Link>
   );
 };
 
